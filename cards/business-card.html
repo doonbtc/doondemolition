@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #fff; }
+
+/* Standard business card: 3.5" x 2" at 96dpi = 336px x 192px */
+/* Print at 300dpi: 1050px x 600px */
+
+.card {
+  width: 3.5in;
+  height: 2in;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+
+/* ===== FRONT ===== */
+.front {
+  background: #111111;
+}
+
+.front .bg-stripe {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    -55deg,
+    transparent,
+    transparent 18px,
+    rgba(200,162,52,0.04) 18px,
+    rgba(200,162,52,0.04) 36px
+  );
+}
+
+.front .gold-bar {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 6px;
+  background: linear-gradient(to bottom, #c8a234, #a07c20, #c8a234);
+}
+
+.front .gold-bar-right {
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, #c8a234, #a07c20, #c8a234);
+}
+
+.front .gold-line-top {
+  position: absolute;
+  top: 18px; left: 20px; right: 12px;
+  height: 1px;
+  background: linear-gradient(to right, #c8a234, transparent);
+}
+
+.front .gold-line-bottom {
+  position: absolute;
+  bottom: 18px; left: 20px; right: 12px;
+  height: 1px;
+  background: linear-gradient(to right, #c8a234, transparent);
+}
+
+.front .logo-wrap {
+  position: absolute;
+  top: 26px;
+  left: 20px;
+}
+
+.front .logo-wrap img {
+  height: 52px;
+  width: auto;
+}
+
+.front .name {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+}
+
+.front .name h1 {
+  font-size: 17px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.front .name h1 span {
+  color: #c8a234;
+}
+
+.front .name p {
+  font-size: 7.5px;
+  color: #888;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.front .tag {
+  position: absolute;
+  top: 28px;
+  right: 14px;
+  text-align: right;
+}
+
+.front .tag p {
+  font-size: 6.5px;
+  color: #c8a234;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 1.8;
+}
+
+/* ===== BACK ===== */
+.back {
+  background: #1a1a1a;
+  margin-top: 0.2in;
+}
+
+.back .gold-bar {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 6px;
+  background: linear-gradient(to bottom, #c8a234, #a07c20, #c8a234);
+}
+
+.back .content {
+  position: absolute;
+  top: 0; left: 18px; right: 12px; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  padding: 14px 0;
+}
+
+.back .contact-block {
+  margin-bottom: 10px;
+}
+
+.back .contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.back .contact-label {
+  font-size: 6px;
+  color: #c8a234;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  width: 28px;
+  flex-shrink: 0;
+}
+
+.back .contact-value {
+  font-size: 8px;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.back .divider {
+  width: 60px;
+  height: 1px;
+  background: #c8a234;
+  margin: 8px 0;
+  opacity: 0.6;
+}
+
+.back .services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.back .service-tag {
+  font-size: 5.5px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid #333;
+  padding: 2px 5px;
+}
+
+.back .vet-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  text-align: right;
+}
+
+.back .vet-badge p {
+  font-size: 5.5px;
+  color: #c8a234;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.back .website {
+  position: absolute;
+  bottom: 12px;
+  left: 18px;
+}
+
+.back .website p {
+  font-size: 7px;
+  color: #c8a234;
+  letter-spacing: 1px;
+}
+
+@page {
+  size: 3.5in 4.2in;
+  margin: 0;
+}
+</style>
+</head>
+<body>
+
+<!-- FRONT -->
+<div class="card front">
+  <div class="bg-stripe"></div>
+  <div class="gold-bar"></div>
+  <div class="gold-bar-right"></div>
+  <div class="gold-line-top"></div>
+  <div class="gold-line-bottom"></div>
+
+  <div class="logo-wrap">
+    <img src="logo.jpg" alt="Doon Contracting">
+  </div>
+
+  <div class="tag">
+    <p>Contracting</p>
+    <p>Interior Demo</p>
+    <p>Renovation Prep</p>
+    <p>Commercial</p>
+  </div>
+
+  <div class="name">
+    <h1>Doon <span>Contracting</span></h1>
+    <p>Contracting &amp; Renovation Prep</p>
+  </div>
+</div>
+
+<!-- BACK -->
+<div class="card back">
+  <div class="gold-bar"></div>
+
+  <div class="content">
+    <div class="contact-block">
+      <div class="contact-item">
+        <span class="contact-label">Name</span>
+        <span class="contact-value">Jeff "Doon" Dunham</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Cell</span>
+        <span class="contact-value">403-650-3466</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Email</span>
+        <span class="contact-value">btcdoon@gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Area</span>
+        <span class="contact-value">Nanton · High River · Okotoks · Calgary</span>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="services">
+      <span class="service-tag">Interior Demo</span>
+      <span class="service-tag">Gut-Outs</span>
+      <span class="service-tag">Reno Prep</span>
+      <span class="service-tag">Carpet Removal</span>
+      <span class="service-tag">Commercial</span>
+      <span class="service-tag">Debris Removal</span>
+    </div>
+  </div>
+
+  <div class="website">
+    <p>dooncontracting.ca</p>
+  </div>
+
+  <div class="vet-badge">
+    <p>Veteran Owned</p>
+    <p>3 PPCLI</p>
+  </div>
+</div>
+
+</body>
+</html>
