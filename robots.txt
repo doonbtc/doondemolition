@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dooncontracting.ca/sitemap.xml
+Sitemap: http://dooncontracting.ca/sitemap.xml
